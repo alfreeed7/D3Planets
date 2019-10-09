@@ -26,6 +26,7 @@ pdata.then
     B4(planets);
     C1(planets);
     C2(planets);
+    C3(planets);
 },
     function(err)
 {console.log("fail",err)}
@@ -64,13 +65,35 @@ var C1=function(planets)
 }
 
 var C2=function(planets)
-{
-    d3.select("#C2")
+{var r1=d3.select("#C2")
     .append("table")
-    .append("tr")
-    .selectAll("td")
+    .selectAll("tr")
     .data(planets)
     .enter()
-    .append("td")
+    .append("tr")
+  r1.append("td")
     .text(function(d){return d.name;})
+}
+
+var C3=function(planets)
+{ var r=d3.select("#C3")
+    .append("table")
+    .selectAll("tr")
+    .data(planets)
+    .enter()
+    .append("tr")
+
+   r.append("td")
+    .text(function(d){return d.name;})
+   r.append("td")
+    .append("img")
+    .attr("src",function(d){return d.img;})
+   r.append("td")
+    .text(function(d){return d.distance;})
+   r.append("td")
+    .text(function(d){return d.radius;})
+   r.append("td")
+    .text(function(d){return d.density;})
+    r.append("td")
+    .text(function(d){return d.moons;})
 }
